@@ -1,0 +1,25 @@
+<!-- Your code here -->
+<h1>Hello, User!</h1>
+<h2>Please enter your city: </h2>
+<%= form_with local: true, method: "get" do |form| %>
+    <%= form.text_field :city %>
+    <%= form.submit %>
+<% end %>
+
+<% $cities.values.each do |c| %>
+<% if not c.nil? %>
+	<h1> <%= c.name %></h1>
+	<p>
+        <% @temperature = (9/5) * (c.weather[:temperature] - 273) + 32 %>
+		It's <%= @temperature.round(2) %>°F
+		and it looks like <%= c.weather[:description] %>
+	</p>
+    <p>
+        Population - <%= c.population %>
+    </p>
+    <p>
+        Landmark - <%= c.landmark %>
+    </p>
+    <br  />
+<% end %>
+<% end %>

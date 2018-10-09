@@ -1,0 +1,23 @@
+
+<% if @w %>
+    <h1><%= @name %></h1>
+<% end %>
+<form action="new">
+    <input type="submit" value="Create a new city" />
+</form>
+
+<% $cities.values.each do |city| %>
+    <!-- In between these two ruby tags, put your code for displaying a city! -->
+    <div>
+        <h1><%=city.name%></h1>
+        <% if city.population %>
+            <% @pop = city.population %>
+        <% end %>
+        <% if city.landmark %>
+            <% @landmark = city.landmark %>
+        <% end %>
+        <p>Population -  <%=@pop%></p>
+        <p>Landmark - <%=@landmark%></p>
+        <hr />
+    </div>
+<% end %>

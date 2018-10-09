@@ -1,0 +1,8 @@
+<h1>Hello, User!</h1>
+<h2>Please enter a city to update: </h2>
+<%= form_with local: true, url: 'update', method: "post" do |form| %>
+    <p>City: <%= form.text_field :city %></p> <br />
+    <p>Population: <%= form.text_field :population %></p> <br />
+    <p>Landmark: <%= form.text_field :landmark %></p> <br />
+    <%= form.submit %>
+<% end %>
